@@ -20,12 +20,12 @@ public class HibernateUtils {
             try {
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/cs544");
+                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/ea_lab");
                 settings.put(Environment.USER, "root");
-                settings.put(Environment.PASS, "CS544-EA");
+                settings.put(Environment.PASS, "rootroot");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
 
-                settings.put(Environment.SHOW_SQL, "true");
+//                settings.put(Environment.SHOW_SQL, "true");
 
                 //settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 

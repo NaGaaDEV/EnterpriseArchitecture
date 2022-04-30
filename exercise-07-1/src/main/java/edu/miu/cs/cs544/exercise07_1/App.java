@@ -3,10 +3,7 @@ package edu.miu.cs.cs544.exercise07_1;
 import java.util.Arrays;
 import java.util.List;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 
 import edu.miu.cs.cs544.exercise07_1.model.Airline;
 import edu.miu.cs.cs544.exercise07_1.model.Airplane;
@@ -42,8 +39,9 @@ public class App {
 
             // TODO update HQL
             @SuppressWarnings("unchecked")
-            List<Flight> flights = session.createQuery("from Flight").list();
+            List<Flight> flights = session.createQuery("select f from Flight f where f.airplane.capacity > 500 and f.origin.country='USA'").list();
 
+            System.out.println("== Flights leaving USA capacity > 500 ==");
             System.out.println("Flight:  Departs:     "
                     + "                  Arrives:");
             for (Flight flight : flights) {
@@ -72,7 +70,8 @@ public class App {
 
             // TODO update HQL
             @SuppressWarnings("unchecked")
-            List<Airline> airlines = session.createQuery("from Airline").list();
+            List<Airline> airlines = session.createQuery("select distinct a from Airline a join a.flights f where f.airplane.model='A380' ").list();
+            System.out.println("== All airlines that use A380 airplanes ==");
             System.out.println("Airlines:");
             for (Airline airline : airlines) {
                 System.out.printf("%-15s\n", airline.getName());
@@ -96,7 +95,8 @@ public class App {
 
             // TODO update HQL
             @SuppressWarnings("unchecked")
-            List<Flight> flights = session.createQuery("from Flight").list();
+            List<Flight> flights = session.createQuery("select distinct f from Flight f join f.airplane a where a.model = '747' and f.airline.name != 'Star Alliance'").list();
+            System.out.println("== Flights using 747 planes that don't belong to Star Alliance ==");
             System.out.println("Flight:  Departs:     "
                     + "                  Arrives:");
             for (Flight flight : flights) {
@@ -125,7 +125,8 @@ public class App {
 
             // TODO update HQL
             @SuppressWarnings("unchecked")
-            List<Flight> flights = session.createQuery("from Flight").list();
+            List<Flight> flights = session.createQuery("from Flight where departureDate = '2009-08-07' and departureTime < '12:00:00'").list();
+            System.out.println("== All flights leaving before 12pm on 08/07/2009 ==");
             System.out.println("Flight:  Departs:     "
                     + "                  Arrives:");
             for (Flight flight : flights) {
