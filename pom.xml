@@ -24,7 +24,10 @@
 		<module>exercise-16-1</module>
 		<module>exercise-17-1</module>
 		<module>exercise-17-2</module>
-	</modules>
+		<module>exercise-15-1</module>
+		<module>exercise-15-2</module>
+        <module>exercise-05-1</module>
+    </modules>
 
 	<properties>
 		<java.version>1.8</java.version>
