@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/ea_lab</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">rootroot</property>
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <property name="hbm2ddl.auto">create-drop</property>
+
+        <!-- Use the thread local session pattern -->
+        <property name="current_session_context_class">thread</property>
+
+        <mapping class="edu.miu.cs.cs544.exercise16_1.bank.domain.Account"/>
+        <mapping class="edu.miu.cs.cs544.exercise16_1.bank.domain.AccountEntry"/>
+        <mapping class="edu.miu.cs.cs544.exercise16_1.bank.domain.Customer"/>
+    </session-factory>
+</hibernate-configuration>
