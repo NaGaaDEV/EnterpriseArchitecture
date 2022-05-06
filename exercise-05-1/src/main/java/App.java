@@ -36,7 +36,6 @@ public class App {
 //        session.persist(customer1);
 
         tx.commit();
-
         try {
             session = sf.openSession();
             tx = session.beginTransaction();
