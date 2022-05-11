@@ -15,18 +15,20 @@
 	<description>CS544 - Enterprise Architecture Lab Codebase</description>
 
 	<modules>
-		<module>exercise-07-1</module>
-		<module>exercise-09-1</module>
-		<module>exercise-11-1</module>
-		<module>exercise-11-2</module>
-		<module>exercise-12-1</module>
-		<module>exercise-13-1</module>
-		<module>exercise-16-1</module>
-		<module>exercise-17-1</module>
-		<module>exercise-17-2</module>
-		<module>exercise-15-1</module>
-		<module>exercise-15-2</module>
-        <module>exercise-05-1</module>
+		<module>hibernate/exercise-05-1</module>
+
+		<module>hibernate/exercise-07-1</module>
+		<module>hibernate/exercise-09-1</module>
+		<module>spring-core/exercise-11-1</module>
+		<module>spring-core/exercise-11-2</module>
+		<module>spring-core/exercise-12-1</module>
+		<module>spring-core/exercise-13-1</module>
+		<module>spring-core/exercise-16-1</module>
+		<module>spring-core/exercise-17-1</module>
+		<module>spring-core/exercise-17-2</module>
+		<module>spring-core/exercise-15-1</module>
+		<module>spring-core/exercise-15-2</module>
+		<module>spring-boot/exercise-15</module>
     </modules>
 
 	<properties>
