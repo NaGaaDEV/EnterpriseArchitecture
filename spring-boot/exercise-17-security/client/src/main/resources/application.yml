@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: e17-spring-boot-cloud-client
+spring-boot-server:
+  name: e17-spring-boot-cloud-server
+
+server-service:
+  username: user
+  password: user
