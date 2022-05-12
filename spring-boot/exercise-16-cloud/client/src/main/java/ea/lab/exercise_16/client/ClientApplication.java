@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collection;
-import java.util.List;
 
 @SpringBootApplication
 public class ClientApplication {
@@ -18,12 +17,14 @@ public class ClientApplication {
         ConfigurableApplicationContext context = SpringApplication.run(ClientApplication.class, args);
 
         CountryServiceClient client = context.getBean(CountryServiceClient.class);
-        Country country = client.getCountry(1);
-        System.out.println("=== One country ===");
-        System.out.println(country);
+
         Collection<Country> countries = client.getCountries();
         System.out.println("=== All countries ===");
         countries.forEach(System.out::println);
+
+        Country country = client.getCountry(1);
+        System.out.println("=== One country ===");
+        System.out.println(country);
     }
 
     @Bean

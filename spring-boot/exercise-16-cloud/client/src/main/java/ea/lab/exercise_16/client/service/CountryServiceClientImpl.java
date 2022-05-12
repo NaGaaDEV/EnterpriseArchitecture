@@ -1,8 +1,10 @@
 package ea.lab.exercise_16.client.service;
 
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import ea.lab.exercise_16.client.model.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,23 +16,27 @@ public class CountryServiceClientImpl implements CountryServiceClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${base-service-url}")
-    private String baseUrl;
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    @Value("${spring-boot-server.name}")
+    private String serverName;
 
     @Override
     public List<Country> getCountries() {
-        String url = baseUrl + "/countries";
+        String url = getBaseServiceUrl() + "/countries";
         return Arrays.asList(restTemplate.getForObject(url, Country[].class));
     }
 
     @Override
     public Country getCountry(Integer id) {
-        String url = baseUrl + "/countries/" + id;
+        String url = getBaseServiceUrl() + "/countries/" + id;
         return restTemplate.getForObject(url, Country.class);
     }
 
-//    @Override
-//    public Country replaceCountry(Country country) {
-//        return repository.save(country);
-//    }
+    private String getBaseServiceUrl() {
+        List<ServiceInstance> serviceInstances = discoveryClient.getInstances(serverName);
+        serviceInstances.forEach(System.out::println);
+        return serviceInstances.get(0).getUri().toString();
+    }
 }
