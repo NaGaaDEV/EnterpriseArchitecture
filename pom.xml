@@ -29,6 +29,7 @@
 		<module>spring-core/exercise-15-1</module>
 		<module>spring-core/exercise-15-2</module>
 		<module>spring-boot/exercise-15</module>
+		<module>spring-boot/exercise-16-cloud</module>
     </modules>
 
 	<properties>

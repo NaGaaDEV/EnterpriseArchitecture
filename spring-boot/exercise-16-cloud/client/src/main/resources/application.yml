@@ -1,0 +1,6 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: e16-spring-boot-cloud-client
+base-service-url: http://localhost:8082
